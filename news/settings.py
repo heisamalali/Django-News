@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'posts'
+    'webapp'
 ]
 
 MIDDLEWARE = [
@@ -75,8 +75,16 @@ WSGI_APPLICATION = 'news.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'news-django',
+        'USER': 'sa',
+        'PASSWORD': '123',
+        'HOST': 'localhost',
+        'PORT': '1433',
+        'OPTIONS': {
+            'driver' : 'ODBC Driver 17 for SQL Server',
+            'Trusted_Connection' : 'yes',
+        }
     }
 }
 
